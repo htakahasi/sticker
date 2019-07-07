@@ -1,0 +1,103 @@
+<DaiokiButton@Button>:
+    group: 'daioki'
+
+<DaimeButton@Button>:
+    group: 'daime'
+
+<DirectionButton@Button>:
+    group: 'direction'
+
+Sticker:
+
+<Sticker>:
+    BoxLayout:
+        orientation: 'vertical'
+    
+        Label:
+            text: str(root.question)
+            font_size: 96
+            size_hint_y: 0.18
+        Label:
+            text: root.resultString
+            font_size: 96
+            size_hint_y: 0.18
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.12
+            
+            Label:
+                size_hint_x: 0.5
+                text: root.placeString
+                font_size: 32
+            Button:
+                size_hint_x: 0.1
+                text: root.dismissString
+                font_size: 32
+                on_release: root.ketteiTapped()
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.6
+
+            BoxLayout:
+                orientation: 'vertical'
+
+                DaiokiButton:
+                    text: '1台置き'
+                    on_release: root.daiokiTapped(1)
+                DaiokiButton:
+                    text: '2台置き'
+                    on_release: root.daiokiTapped(2)
+                DaiokiButton:
+                    text: '3台置き'
+                    on_release: root.daiokiTapped(3)
+                DaiokiButton:
+                    text: '4台置き'
+                    on_release: root.daiokiTapped(4)
+                DaiokiButton:
+                    text: '5台置き'
+                    on_release: root.daiokiTapped(5)
+                DaiokiButton:
+                    text: '6台置き'
+                    on_release: root.daiokiTapped(6)
+            BoxLayout:
+                orientation: 'vertical'
+
+                DirectionButton:
+                    text: '前停め'
+                    on_release: root.directionTapped('forward')
+                DirectionButton:
+                    text: 'バック停め'
+                    on_release: root.directionTapped('backward')
+            BoxLayout:
+                orientation: 'vertical'
+
+                DaimeButton:
+                    text: '1台目'
+                    on_release: root.daimeTapped(1)
+                DaimeButton:
+                    text: '2台目'
+                    on_release: root.daimeTapped(2)
+                DaimeButton:
+                    text: '3台目'
+                    on_release: root.daimeTapped(3)
+                DaimeButton:
+                    text: '4台目'
+                    on_release: root.daimeTapped(4)
+                DaimeButton:
+                    text: '5台目'
+                    on_release: root.daimeTapped(5)
+                DaimeButton:
+                    text: '6台目'
+                    on_release: root.daimeTapped(6)
+
+        BoxLayout:
+            size_hint_y: 0.1            
+            Label:
+                text: '%.3d点' % root.score
+                font_size: 32
+                size_hint_x: 0.5
+            Label:
+                text: root.remainTimeString
+                font_size: 32
+                size_hint_x: 1
+                color: root.remainTimeColor
